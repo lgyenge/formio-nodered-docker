@@ -2,17 +2,9 @@
     {
         "id": "3af82246.3634ae",
         "type": "tab",
-        "label": "Flow 1",
+        "label": "Login",
         "disabled": false,
         "info": ""
-    },
-    {
-        "id": "f66abe6894bed9c7",
-        "type": "tab",
-        "label": "Flow 2",
-        "disabled": false,
-        "info": "",
-        "env": []
     },
     {
         "id": "ea155133d4538f9e",
@@ -111,7 +103,6 @@
             "71dfaeee40b70983",
             "9d73997bef56eb5b",
             "434326e9767b7cae",
-            "8f06b96399050384",
             "ee5ff440b8515069",
             "dc3f05b466db1f50",
             "2ef4844d9771ae72"
@@ -119,7 +110,7 @@
         "x": 94,
         "y": 139,
         "w": 1152,
-        "h": 462
+        "h": 362
     },
     {
         "id": "5d7e54ca.019d44",
@@ -133,6 +124,7 @@
         "tls": "d50d0c9f.31e858",
         "influxdbVersion": "2.0",
         "url": "http://localhost:8086",
+        "timeout": "",
         "rejectUnauthorized": false
     },
     {
@@ -195,13 +187,17 @@
         "type": "ui-base",
         "name": "My Dashboard",
         "path": "/dashboard",
+        "appIcon": "",
         "includeClientData": true,
         "acceptsClientConfig": [
             "ui-notification",
-            "ui-control"
+            "ui-control",
+            "ui-template"
         ],
         "showPathInSidebar": false,
-        "navigationStyle": "default"
+        "showPageTitle": true,
+        "navigationStyle": "default",
+        "titleBarStyle": "default"
     },
     {
         "id": "89595ca3dd70ef2d",
@@ -230,7 +226,7 @@
         "icon": "home",
         "layout": "grid",
         "theme": "89595ca3dd70ef2d",
-        "order": 2,
+        "order": 3,
         "className": "",
         "visible": "true",
         "disabled": "false"
@@ -354,7 +350,7 @@
         "icon": "file",
         "layout": "grid",
         "theme": "89595ca3dd70ef2d",
-        "order": 3,
+        "order": 4,
         "className": "",
         "visible": true,
         "disabled": "false"
@@ -366,7 +362,7 @@
         "page": "f904921f03075ee2",
         "width": "12",
         "height": "1",
-        "order": 3,
+        "order": 1,
         "showTitle": true,
         "className": "",
         "visible": "true",
@@ -381,7 +377,7 @@
         "icon": "plus",
         "layout": "grid",
         "theme": "89595ca3dd70ef2d",
-        "order": 1,
+        "order": 2,
         "className": "",
         "visible": "true",
         "disabled": "false"
@@ -393,7 +389,7 @@
         "page": "d06de6d5eb0844e5",
         "width": "8",
         "height": "1",
-        "order": -1,
+        "order": 1,
         "showTitle": true,
         "className": "",
         "visible": "true",
@@ -406,7 +402,7 @@
         "page": "d06de6d5eb0844e5",
         "width": "4",
         "height": "1",
-        "order": -1,
+        "order": 2,
         "showTitle": true,
         "className": "",
         "visible": "true",
@@ -419,7 +415,7 @@
         "page": "d06de6d5eb0844e5",
         "width": "12",
         "height": "1",
-        "order": -1,
+        "order": 3,
         "showTitle": true,
         "className": "",
         "visible": "true",
@@ -447,9 +443,9 @@
         "icon": "plus",
         "layout": "grid",
         "theme": "c5ed292f3032aa43",
-        "order": 4,
+        "order": 5,
         "className": "",
-        "visible": "true",
+        "visible": true,
         "disabled": "false"
     },
     {
@@ -476,52 +472,456 @@
         }
     },
     {
-        "id": "977a96d5363046db",
-        "type": "inject",
-        "z": "3af82246.3634ae",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 310,
-        "y": 120,
-        "wires": [
-            [
-                "ee06ab988052677a"
-            ]
-        ]
+        "id": "58b70de041e1f7d2",
+        "type": "ui-page",
+        "name": "Login",
+        "ui": "5b49570e4a151226",
+        "path": "/login",
+        "icon": "home",
+        "layout": "grid",
+        "theme": "89595ca3dd70ef2d",
+        "order": 1,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "69a1d2b49bfbebef",
+        "type": "ui-group",
+        "name": "Login",
+        "page": "58b70de041e1f7d2",
+        "width": "6",
+        "height": "1",
+        "order": 1,
+        "showTitle": false,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "5d86edbf.ced464",
+        "type": "ui_tab",
+        "name": "Übersicht",
+        "icon": "dashboard",
+        "order": 1
     },
     {
         "id": "ee06ab988052677a",
         "type": "debug",
         "z": "3af82246.3634ae",
-        "name": "",
+        "name": "Ok",
         "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "false",
+        "complete": "true",
+        "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 570,
-        "y": 180,
+        "x": 950,
+        "y": 240,
         "wires": []
     },
     {
-        "id": "18743fe18d921ec5",
+        "id": "03e482c44d18623b",
+        "type": "ui-text-input",
+        "z": "3af82246.3634ae",
+        "group": "69a1d2b49bfbebef",
+        "name": "email",
+        "label": "Email",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "topic": "topic",
+        "topicType": "msg",
+        "mode": "text",
+        "delay": 300,
+        "passthru": true,
+        "sendOnDelay": false,
+        "sendOnBlur": true,
+        "sendOnEnter": true,
+        "className": "",
+        "x": 90,
+        "y": 180,
+        "wires": [
+            [
+                "ee9c098840189087"
+            ]
+        ]
+    },
+    {
+        "id": "ee9c098840189087",
+        "type": "change",
+        "z": "3af82246.3634ae",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "email",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 280,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d76f814368668bde",
+        "type": "ui-text-input",
+        "z": "3af82246.3634ae",
+        "group": "69a1d2b49bfbebef",
+        "name": "password",
+        "label": "Password",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "topic": "topic",
+        "topicType": "msg",
+        "mode": "password",
+        "delay": 300,
+        "passthru": true,
+        "sendOnDelay": false,
+        "sendOnBlur": true,
+        "sendOnEnter": true,
+        "className": "",
+        "x": 100,
+        "y": 240,
+        "wires": [
+            [
+                "df729d14796cfc4e"
+            ]
+        ]
+    },
+    {
+        "id": "df729d14796cfc4e",
+        "type": "change",
+        "z": "3af82246.3634ae",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "password",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 300,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4bf2d04f1d22c471",
+        "type": "ui-button",
+        "z": "3af82246.3634ae",
+        "group": "69a1d2b49bfbebef",
+        "name": "",
+        "label": "Login",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 90,
+        "y": 300,
+        "wires": [
+            [
+                "c5ba287de9d21c19"
+            ]
+        ]
+    },
+    {
+        "id": "e18737b044ed284b",
+        "type": "http request",
+        "z": "3af82246.3634ae",
+        "name": "login",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "basic",
+        "senderr": false,
+        "headers": [],
+        "x": 510,
+        "y": 340,
+        "wires": [
+            [
+                "ec1273b6d4da56d1",
+                "0a79e616eeeed4ca",
+                "227ea2eac2a6e60d"
+            ]
+        ]
+    },
+    {
+        "id": "95afed5ee11f3a03",
+        "type": "debug",
+        "z": "3af82246.3634ae",
+        "name": "Err",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 950,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "ec1273b6d4da56d1",
+        "type": "function",
+        "z": "3af82246.3634ae",
+        "name": "handle token",
+        "func": "let newMsg = [];\nlet err_msg = {};\nlet ok_msg = {};\nerr_msg.payload = null;\nok_msg.payload = null;\n /*ok_msg.payload = {\n    page: 'Form'\n} */\n\nif (msg.statusCode == 200) {\n    global.set('token', msg.headers['x-jwt-token']);\n    let pld = JSON.parse(msg.payload);\n    global.set('user',pld.data.email);\n    ok_msg.payload = \"You are logged in as: \" + pld.data.email ;\n    node.status({fill:\"green\",shape:\"ring\",text:\"You are logged in as: \" + pld.data.email});\n    newMsg.push(ok_msg);\n} else {\n    newMsg.push(null);\n}\n\nif (msg.statusCode != 200) {\n    global.set('token',\"bad token\");\n    global.set('user',\"\");\n    // err_msg.payload = msg.payload.details[0].message+\" errorCode: \" + msg.statusCode ;\n    //err_msg.payload = msg.payload+\" errorCode: \" + msg.statusCode ;\n    //err_msg.payload = \" errorCode: \" + msg.statusCode ;\n    err_msg.payload = {payload: msg.payload} ;\n\n    newMsg.push(err_msg.payload);\n    //newMsg.push('valami');\n    //node.status({fill:\"red\",shape:\"ring\",text:\"bad token\"});\n    node.status({fill:\"red\",shape:\"ring\",text:msg.payload});\n\n} else {\n    newMsg.push(null);\n}\n   // let aa = JSON.stringify(newMsg);\n   // node.log (aa);\n\nreturn newMsg;\n",
+        "outputs": 2,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 750,
+        "y": 320,
+        "wires": [
+            [
+                "ee06ab988052677a"
+            ],
+            [
+                "f0e72dc11bf822af"
+            ]
+        ]
+    },
+    {
+        "id": "0a79e616eeeed4ca",
+        "type": "function",
+        "z": "3af82246.3634ae",
+        "name": "handle error",
+        "func": "\nvar newMsg = [];\nvar err_msg = {};\nvar ok_msg = {};\nerr_msg.payload = null;\nok_msg.payload = null;\n\n\nif (msg.statusCode == 200) {\n    newMsg.push(msg);\n    node.status({fill:\"green\",shape:\"ring\",text:\"OK status:\" + msg.statusCode});\n} else {\n    newMsg.push(null);\n}\n\nif (!(msg.statusCode == 200 || msg.statusCode == 206 )) {\n    err_msg.payload = \" errorCode: \" + msg.statusCode ;\n    newMsg.push(err_msg);\n    node.status({fill:\"red\",shape:\"ring\",text:err_msg.payload});\n} else {\n    newMsg.push(null);\n}\nreturn newMsg;\n",
+        "outputs": 2,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 750,
+        "y": 460,
+        "wires": [
+            [
+                "0cd684d19b655032"
+            ],
+            [
+                "95afed5ee11f3a03"
+            ]
+        ]
+    },
+    {
+        "id": "c5ba287de9d21c19",
+        "type": "function",
+        "z": "3af82246.3634ae",
+        "name": "login at init",
+        "func": "// msgout = {\"data\":{\"email\":\"admin@example.com\",\"password\": \"CHANGEME\"}};\nmsgout={};\nlet url = global.get('url');\nlet email = global.get('email')\nlet password = global.get('password')\nmsgout.payload = {};\nmsgout.payload.data = {};\nmsgout.payload.data.password = password;\nmsgout.payload.data.email = email;\nmsgout.url=url+\"user/login\";\nreturn msgout;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 290,
+        "y": 300,
+        "wires": [
+            [
+                "e18737b044ed284b",
+                "7a6c64dd7e537db7"
+            ]
+        ]
+    },
+    {
+        "id": "227ea2eac2a6e60d",
+        "type": "debug",
+        "z": "3af82246.3634ae",
+        "name": "debug 50",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 760,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "7a6c64dd7e537db7",
+        "type": "debug",
+        "z": "3af82246.3634ae",
+        "name": "debug 51",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "f0e72dc11bf822af",
+        "type": "debug",
+        "z": "3af82246.3634ae",
+        "name": "Err",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1030,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "0cd684d19b655032",
+        "type": "debug",
+        "z": "3af82246.3634ae",
+        "name": "Ok",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 950,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "c79f680af1732206",
+        "type": "function",
+        "z": "3af82246.3634ae",
+        "name": "function 3",
+        "func": "    global.set('token',\"bad token\");\n    global.set('user',\"\");\n    //msg.payload = {url: 'https://log:out@example.com/'}\n    msg.payload = {\"page\":\"Login\"}\n    return msg;\n    ",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 620,
+        "wires": [
+            [
+                "dc05394f2d27448e",
+                "ba733c221c3d1784"
+            ]
+        ]
+    },
+    {
+        "id": "a4c6d0d99a2f702d",
+        "type": "ui-template",
+        "z": "3af82246.3634ae",
+        "group": "",
+        "page": "",
+        "ui": "5b49570e4a151226",
+        "name": "Logout",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "head": "",
+        "format": "<template>\n    <Teleport v-if=\"mounted\" to=\"#app-bar-actions\">\n        <v-btn @click=\"send({payload: 'Logout'})\">Logout</v-btn>\n    </Teleport>\n</template>\n<script>\n    export default {\n        data() {\n            return {\n                mounted: false\n            }\n        },\n        mounted() {\n            this.mounted = true\n        }\n    }\n</script>",
+        "storeOutMessages": true,
+        "passthru": true,
+        "resendOnRefresh": true,
+        "templateScope": "widget:ui",
+        "className": "",
+        "x": 114,
+        "y": 616,
+        "wires": [
+            [
+                "c79f680af1732206"
+            ]
+        ]
+    },
+    {
+        "id": "dc05394f2d27448e",
+        "type": "ui-control",
+        "z": "3af82246.3634ae",
+        "name": "Go to Login Page",
+        "ui": "5b49570e4a151226",
+        "events": "all",
+        "x": 570,
+        "y": 600,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ba733c221c3d1784",
+        "type": "change",
+        "z": "3af82246.3634ae",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 300,
+        "y": 480,
+        "wires": [
+            [
+                "03e482c44d18623b"
+            ]
+        ]
+    },
+    {
+        "id": "97fcd344a8c954cd",
         "type": "inject",
         "z": "3af82246.3634ae",
         "name": "",
@@ -540,11 +940,13 @@
         "onceDelay": 0.1,
         "topic": "",
         "payload": "",
-        "payloadType": "date",
-        "x": 340,
-        "y": 240,
+        "payloadType": "str",
+        "x": 130,
+        "y": 440,
         "wires": [
-            []
+            [
+                "ba733c221c3d1784"
+            ]
         ]
     },
     {
@@ -605,7 +1007,7 @@
                 "t": "set",
                 "p": "url",
                 "pt": "global",
-                "to": "http://localhost:3001/",
+                "to": "http://formio:3001/",
                 "tot": "str"
             }
         ],
@@ -639,7 +1041,8 @@
         "y": 460,
         "wires": [
             [
-                "9b8bd65b16bb61cd"
+                "9b8bd65b16bb61cd",
+                "47938fdb843ab686"
             ]
         ]
     },
@@ -654,6 +1057,23 @@
         ],
         "x": 635,
         "y": 360,
+        "wires": []
+    },
+    {
+        "id": "47938fdb843ab686",
+        "type": "debug",
+        "z": "ea155133d4538f9e",
+        "name": "debug 41",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 700,
+        "y": 280,
         "wires": []
     },
     {
@@ -1927,7 +2347,7 @@
         "method": "POST",
         "ret": "obj",
         "paytoqs": "ignore",
-        "url": "http://localhost:3001/user/login",
+        "url": "",
         "tls": "",
         "persist": false,
         "proxy": "",
@@ -2036,7 +2456,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1080,
-        "y": 180,
+        "y": 140,
         "wires": []
     },
     {
@@ -2253,7 +2673,8 @@
         "y": 240,
         "wires": [
             [
-                "94567cf37d979bb8"
+                "94567cf37d979bb8",
+                "fc50d99c592e0223"
             ]
         ]
     },
@@ -2262,7 +2683,7 @@
         "type": "function",
         "z": "6c7e42345bae97a9",
         "name": "login at init",
-        "func": "// msgout = {\"data\":{\"email\":\"admin@example.com\",\"password\": \"CHANGEME\"}};\nmsgout={};\nmsgout.payload = {};\nmsgout.payload.data = {};\nmsgout.payload.data.password = msg.password;\nmsgout.payload.data.email = msg.email;\nreturn msgout;",
+        "func": "// msgout = {\"data\":{\"email\":\"admin@example.com\",\"password\": \"CHANGEME\"}};\nmsgout={};\nurl = global.get('url');\nmsgout.payload = {};\nmsgout.payload.data = {};\nmsgout.payload.data.password = msg.password;\nmsgout.payload.data.email = msg.email;\nmsgout.url=url+\"user/login\";\nreturn msgout;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -2273,6 +2694,7 @@
         "y": 260,
         "wires": [
             [
+                "e80a0d7086083136",
                 "328b1194c9cd07e3"
             ]
         ]
@@ -2324,8 +2746,55 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1200,
-        "y": 300,
+        "y": 360,
         "wires": []
+    },
+    {
+        "id": "fc50d99c592e0223",
+        "type": "debug",
+        "z": "6c7e42345bae97a9",
+        "name": "debug 40",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 320,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "e80a0d7086083136",
+        "type": "debug",
+        "z": "6c7e42345bae97a9",
+        "name": "debug 42",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 540,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "718e163b992ffea7",
+        "type": "ui-control",
+        "z": "6c7e42345bae97a9",
+        "name": "",
+        "ui": "5b49570e4a151226",
+        "events": "all",
+        "x": 300,
+        "y": 900,
+        "wires": [
+            []
+        ]
     },
     {
         "id": "ba081cee7ff6115b",
@@ -2788,7 +3257,7 @@
         "type": "debug",
         "z": "b8c7c60f6466ef58",
         "name": "debug 27",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -3345,7 +3814,7 @@
         "name": "Search",
         "group": "405e70fb161d3a14",
         "label": "",
-        "order": 2,
+        "order": 1,
         "width": 0,
         "height": 0,
         "options": [
@@ -3424,7 +3893,7 @@
         "group": "405e70fb161d3a14",
         "name": "Forms",
         "label": "text",
-        "order": 3,
+        "order": 2,
         "width": 0,
         "height": 0,
         "maxrows": "3",
@@ -3728,7 +4197,7 @@
         "group": "055b8a4315b58cf3",
         "name": "from",
         "label": "From",
-        "order": 0,
+        "order": 4,
         "width": 0,
         "height": 0,
         "topic": "topic",
@@ -3755,7 +4224,7 @@
         "group": "055b8a4315b58cf3",
         "name": "user",
         "label": "User",
-        "order": 0,
+        "order": 3,
         "width": 0,
         "height": 0,
         "topic": "topic",
@@ -3782,7 +4251,7 @@
         "group": "055b8a4315b58cf3",
         "name": "sarzs",
         "label": "Sarzs",
-        "order": 0,
+        "order": 2,
         "width": 0,
         "height": 0,
         "topic": "topic",
@@ -3809,7 +4278,7 @@
         "group": "055b8a4315b58cf3",
         "name": "to",
         "label": "To",
-        "order": 0,
+        "order": 1,
         "width": 0,
         "height": 0,
         "topic": "topic",
@@ -3974,7 +4443,7 @@
         "group": "83e8a695ef805df0",
         "name": "Submissins",
         "label": "text",
-        "order": 0,
+        "order": 1,
         "width": 0,
         "height": 0,
         "maxrows": "10",
@@ -4103,11 +4572,11 @@
         "page": "",
         "ui": "",
         "name": "UPLOAD(.csv)",
-        "order": 0,
+        "order": 1,
         "width": 0,
         "height": 0,
         "head": "",
-        "format": "<v-file-input show-size multiple chips :rules=\"rules\" accept=\".csv\"\n    variant=\"underlined\" label=\"File input\" v-on:change=\"uploadFile\" v-model=\"value\"\n    active-color=\"primary\" @update:modelValue=\"send({payload: value})\" />\n",
+        "format": "<v-file-input show-size multiple chips :rules=\"rules\" accept=\".csv\"\n    variant=\"underlined\" label=\"File input\" v-on:change=\"uploadFile\" v-model=\"value\"\n    active-color=\"primary\" @update:modelValue=\"send({payload: value})\"></v-file-input>\n",
         "storeOutMessages": true,
         "passthru": true,
         "resendOnRefresh": true,
@@ -4312,7 +4781,7 @@
         "type": "function",
         "z": "2e99c453b7b1774a",
         "name": "generate forms",
-        "func": "msgout={};\nmsgout.token = global.get('token');\nurl = global.get('url');\n//tags = msg.payload[\"tags\"];\nvar end =\"-3\"\nlet nfdata = msg.payload;\n\nvar newform = {\n    \"title\": \"\",\n    \"display\": \"form\",\n    \"type\": \"form\",\n    \"name\": \"\",\n    \"path\": \"\",\n    \"tags\": [\"common\"],\n    \"components\": []\n};\n\nsubmit = {\n    type: 'button',\n    action: 'submit',\n    label: 'Submit',\n    theme: 'primary'\n  }\n\nnewform.name = nfdata.Cikkszám+end;\nnewform.title = nfdata.Cikkszám + \" (\" + nfdata.Megnevezés + \")\";\nnewform.path = nfdata.Cikkszám+end;\n\nlet user = setTextfield (\"user\");\n// user.customDefaultValue = \"value = Formio.getUser().data.email;\"\n//user.customDefaultValue = \"value = localStorage.getItem(formioUser).data.email;\"\nuser.customDefaultValue = \"value = localStorage.getItem('formioUser').data.email;\";\n \nuser.disabled = true,\nnewform.components.push (user);\n\nlet lot = setTextfield (\"lot\");\nnewform.components.push (lot);\n\nlet serial = setNumber (\"serial\", \"\",\"serial\");\nserial.label = \"serial\";\nserial.key = \"serial\";\nnewform.components.push (serial);\n\n\nfor (i=0; i < Object.keys(nfdata).length/3; i++) {\n    if (nfdata[\"Tp-\"+ i] == \"n\") {\n        let numf = setNumber (nfdata[\"Par-\"+ i],nfdata[\"Tr-\"+ i],i );\n        newform.components.push (numf);\n    } else if (nfdata[\"Tp-\"+ i] == \"b\") {\n        let chkb = setCheckbox (nfdata[\"Par-\"+ i],nfdata[\"Tr-\"+ i], i );\n            newform.components.push (chkb);\n    }\n}\nnewform.components.push (submit);\n\n\nmsgout.url=url +\"form\";\nmsgout.payload = newform;\nreturn msgout;\n\nfunction setNumber (par, tr, i) {\n    console.log (par)\n    var nf = {\n  \"input\": true,\n  \"tableView\": true,\n  \"inputType\": \"number\",\n  \"inputMask\": \"\",\n  \"label\": \"First Name\",\n  \"key\": \"firstName\",\n  \"placeholder\": \"\",\n  \"prefix\": \"\",\n  \"suffix\": \"\",\n  \"defaultValue\": \"\",\n  \"protected\": false,\n  \"unique\": false,\n  \"persistent\": true,\n  \"validate\": {\n    \"required\": false,\n    \"minLength\": \"\",\n    \"maxLength\": \"\",\n    \"pattern\": \"\",\n    \"custom\": \"\",\n    \"customPrivate\": false\n  },\n  \"conditional\": {\n    \"show\": \"\",\n    \"when\": null,\n    \"eq\": \"\"\n  },\n  \"type\": \"number\",\n  \"tags\": [\n    \n  ],\n  \"lockKey\": true,\n  \"isNew\": false\n};\n\n\nnf.label = par +\"(\" + tr + \")\";\nnf.key = \"par\"+i;\nreturn nf;\n}\n\n\nfunction setCheckbox (par, tr, i) {\n\n    var cb = {\n      \"label\": \"Checkbox\",\n      \"tableView\": true,\n      \"key\": \"checkbox\",\n      \"type\": \"checkbox\",\n      \"input\": true\n    }\n\n    cb.label = par +\"(\" + tr + \")\";\n    cb.key = \"par\"+i;\n    return cb;\n}\n\nfunction setTextfield (par) {\nvar tx = {\n    \"type\": \"textfield\",\n    \"label\": \"\",\n    \"key\": \"\",\n    \"input\": true,\n    \"hidden\": false,\n    \"disabled\" : false,\n    \"customDefaultValue\": \"\"\n  }\n    tx.label = par;\n    tx.key = par;\n    return tx;\n}\n",
+        "func": "msgout={};\nmsgout.token = global.get('token');\nurl = global.get('url');\n//tags = msg.payload[\"tags\"];\nvar end =\"-3\"\nlet nfdata = msg.payload;\n\nvar newform = {\n    \"title\": \"\",\n    \"display\": \"form\",\n    \"type\": \"form\",\n    \"name\": \"\",\n    \"path\": \"\",\n    \"tags\": [\"common\"],\n    \"components\": [],\n    access: [\n{\ntype: \"read_all\",\nroles: [\n\"66615ebd567532322b440b21\",\n\"66615ebd567532322b440b25\",\n\"66615ebd567532322b440b29\"\n]\n}\n],\nsubmissionAccess: [\n{\ntype: \"create_all\",\nroles: [ ]\n},\n{\ntype: \"read_all\",\nroles: [\n\"66615ebd567532322b440b25\"\n]\n},\n{\ntype: \"update_all\",\nroles: [ ]\n},\n{\ntype: \"delete_all\",\nroles: [ ]\n},\n{\ntype: \"create_own\",\nroles: [\n\"66615ebd567532322b440b25\"\n]\n},\n{\ntype: \"read_own\",\nroles: [\n\"66615ebd567532322b440b25\"\n]\n},\n{\ntype: \"update_own\",\nroles: [\n\"66615ebd567532322b440b25\"\n]\n},\n{\ntype: \"delete_own\",\nroles: [\n\"66615ebd567532322b440b25\"\n]\n}\n]\n};\n\nsubmit = {\n    type: 'button',\n    action: 'submit',\n    label: 'Submit',\n    theme: 'primary'\n  }\n  \n  lot = {\n    label: \"lot\",\n    widget: \"choicesjs\",\n    tableView: true,\n    dataSrc: \"resource\",\n    data: {\n    resource: \"66f67387bad81693536044c3\"\n    },\n    valueProperty: \"data.lot\",\n    template: \"<span>{{ item.data.lot }}</span>\",\n    validate: {\n    select: false\n    },\n    validateWhenHidden: false,\n    key: \"lot1\",\n    type: \"select\",\n    searchField: \"data.lot__regex\",\n    noRefreshOnScroll: false,\n    addResource: false,\n    reference: false,\n    input: true\n  }\n  \n\nnewform.name = nfdata.Cikkszám+end;\nnewform.title = nfdata.Cikkszám + \" (\" + nfdata.Megnevezés + \")\";\nnewform.path = nfdata.Cikkszám+end;\n\nlet user = setTextfield (\"user\");\n// user.customDefaultValue = \"value = Formio.getUser().data.email;\"\n//user.customDefaultValue = \"value = localStorage.getItem(formioUser).data.email;\"\nuser.customDefaultValue = \"value = user.data.email;\"\n \nuser.disabled = true,\nnewform.components.push (user);\n\n//let lot = setTextfield (\"lot\");\n// select resource - az id-t kézzel kell beírni\nnewform.components.push (lot);\n\nlet serial = setNumber (\"serial\", \"\",\"serial\");\nserial.label = \"serial\";\nserial.key = \"serial\";\nnewform.components.push (serial);\n\n\nfor (i=0; i < Object.keys(nfdata).length/3; i++) {\n    if (nfdata[\"Tp-\"+ i] == \"n\") {\n        let numf = setNumber (nfdata[\"Par-\"+ i],nfdata[\"Tr-\"+ i],i );\n        newform.components.push (numf);\n    } else if (nfdata[\"Tp-\"+ i] == \"b\") {\n        let chkb = setCheckbox (nfdata[\"Par-\"+ i],nfdata[\"Tr-\"+ i], i );\n            newform.components.push (chkb);\n    }\n}\nnewform.components.push (submit);\n\n\nmsgout.url=url +\"form\";\nmsgout.payload = newform;\nreturn msgout;\n\nfunction setNumber (par, tr, i) {\n    console.log (par)\n    var nf = {\n  \"input\": true,\n  \"tableView\": true,\n  \"inputType\": \"number\",\n  \"inputMask\": \"\",\n  \"label\": \"First Name\",\n  \"key\": \"firstName\",\n  \"placeholder\": \"\",\n  \"prefix\": \"\",\n  \"suffix\": \"\",\n  \"defaultValue\": \"\",\n  \"protected\": false,\n  \"unique\": false,\n  \"persistent\": true,\n  \"validate\": {\n    \"required\": false,\n    \"minLength\": \"\",\n    \"maxLength\": \"\",\n    \"pattern\": \"\",\n    \"custom\": \"\",\n    \"customPrivate\": false\n  },\n  \"conditional\": {\n    \"show\": \"\",\n    \"when\": null,\n    \"eq\": \"\"\n  },\n  \"type\": \"number\",\n  \"tags\": [\n    \n  ],\n  \"lockKey\": true,\n  \"isNew\": false\n};\n\n\nnf.label = par +\"(\" + tr + \")\";\nnf.key = \"par\"+i;\nreturn nf;\n}\n\n\nfunction setCheckbox (par, tr, i) {\n\n    var cb = {\n      \"label\": \"Checkbox\",\n      \"tableView\": true,\n      \"key\": \"checkbox\",\n      \"type\": \"checkbox\",\n      \"input\": true\n    }\n\n    cb.label = par +\"(\" + tr + \")\";\n    cb.key = \"par\"+i;\n    return cb;\n}\n\nfunction setTextfield (par) {\nvar tx = {\n    \"type\": \"textfield\",\n    \"label\": \"\",\n    \"key\": \"\",\n    \"input\": true,\n    \"hidden\": false,\n    \"disabled\" : false,\n    \"customDefaultValue\": \"\"\n  }\n    tx.label = par;\n    tx.key = par;\n    return tx;\n}\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -4454,7 +4923,8 @@
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "false",
+        "complete": "payload",
+        "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
         "x": 460,
@@ -4488,7 +4958,8 @@
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "false",
+        "complete": "true",
+        "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
         "x": 500,
@@ -4521,20 +4992,6 @@
             [
                 "2ef4844d9771ae72"
             ]
-        ]
-    },
-    {
-        "id": "8f06b96399050384",
-        "type": "ui-control",
-        "z": "2e99c453b7b1774a",
-        "g": "c2b5d452c4b51273",
-        "name": "",
-        "ui": "5b49570e4a151226",
-        "events": "all",
-        "x": 740,
-        "y": 560,
-        "wires": [
-            []
         ]
     }
 ]
